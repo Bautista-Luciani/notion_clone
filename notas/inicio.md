@@ -19,4 +19,6 @@
    - utils ► @/lib/utils
    - React Server Components ► yes
    - components.json ► yes
-5. Corremos la aplicacion ► `npm run dev`
+5. Agregamos la altura del 100% al html, body y root ► `app/globals.css`
+6. Cambiamos el metadata ► `app/layout.tsx`
+7. Corremos la aplicacion ► `npm run dev`
