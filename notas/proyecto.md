@@ -7,3 +7,4 @@
    - Trabajamos en el sidebar y navbar 
    - Trabajamos en la document page
 6. Trabajamos en el schema ► `notas/archivos/db.md`
+7. Trabajamos en el sidebar item ► `notas/archivos/page.md`

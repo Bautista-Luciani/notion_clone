@@ -1,11 +1,15 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { ChevronLeft, MenuIcon, Sidebar } from "lucide-react"
+import { ChevronLeft, MenuIcon, PlusCircle, Search, Settings, Sidebar } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { ElementRef, useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import UserItem from "./user-item"
+import Item from "./item"
+import { useMutation } from "convex/react"
+import { api } from "@/convex/_generated/api"
+import { toast } from "sonner"
 
 const Navigation = () => {
 
@@ -13,6 +17,8 @@ const Navigation = () => {
     const pathname = usePathname()
     /* Usamos useMediaQuery para saber si estamos en mobile o desktop */
     const isMobile = useMediaQuery("(max-width: 768px)")
+    /* Api para crear un doc */
+    const create = useMutation(api.documents.create)
 
     const isResizingRef = useRef(false)
     const sidebarRef = useRef<ElementRef<"aside">>(null)
@@ -103,6 +109,17 @@ const Navigation = () => {
         }
     }
 
+    /* Funcion para crear un nuevo doc */
+    const handleCreate = () => {
+        const promise = create({ title: "Untitled" })
+
+        toast.promise(promise, {
+            loading: "Creating a new note...",
+            success: "New note created!",
+            error: "Failed to create a new note."
+        })
+    }
+
     return (
         <>
             <aside
@@ -125,6 +142,22 @@ const Navigation = () => {
                 </div>
                 <div>
                     <UserItem />
+                    <Item 
+                        onClick={()=>{}}
+                        label="Search"
+                        icon={Search}
+                        isSearch
+                    />
+                    <Item 
+                        onClick={()=>{}}
+                        label="Settings"
+                        icon={Settings}
+                    />
+                    <Item 
+                        onClick={handleCreate}
+                        label="New page"
+                        icon={PlusCircle}
+                    />
                 </div>
                 <div className="mt-4">
                     <p>Documents</p>
