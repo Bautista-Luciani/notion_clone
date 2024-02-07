@@ -27,6 +27,7 @@ const Navigation = () => {
       } else {
         resetWidth()
       }
+      /* Evitar este warning */
     }, [isMobile])
 
     useEffect(() => {
