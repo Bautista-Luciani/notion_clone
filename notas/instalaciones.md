@@ -11,3 +11,6 @@
 
 # CLERK (auth)
 >- `Clerk` → npm install @clerk/clerk-react
+
+# USEHOOK (hooks)
+>- `useHooks` → npm i usehooks-ts
