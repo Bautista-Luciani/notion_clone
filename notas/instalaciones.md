@@ -15,3 +15,7 @@
 
 # USEHOOK (hooks)
 >- `useHooks` → npm i usehooks-ts
+
+# SONNER (toaster)
+>- `Sonner` → npm i sonner
+

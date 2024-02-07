@@ -31,3 +31,11 @@
 3. Envolvemos el ThemeProvider en el ConvexClientiProvider ► `app/layout.tsx`
 4. Creamos el componente *Spinner* ► `components/spinner.tsx`
 5. Agregamos el boton para loguearnos ► `app/(marketng)/_components/navbar.tsx`
+
+# SCHEMA
+1. Creamos el schema ► `convex/schema.ts`
+2. Creamos la funcion para crear un nuevo documento ► `convex/documents.ts`
+3. Instalamos sonner ► `npm i sonner`
+4. Agregamos el *Toaster* de sonner al RootLayout ► `app/layout`
+5. Usamos esta funcion en el *DocumentPage* ► `app/(main)/(routes)/documents/page.tsx`
+6. Creamos la funcion para obtener los documentos ► `convex/documents.ts`

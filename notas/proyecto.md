@@ -6,4 +6,4 @@
 5. En el archivo `notas/archivos/page.md`:
    - Trabajamos en el sidebar y navbar 
    - Trabajamos en la document page
-   - 
+6. Trabajamos en el schema ► `notas/archivos/db.md`
