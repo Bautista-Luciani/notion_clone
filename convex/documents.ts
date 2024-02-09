@@ -13,7 +13,7 @@ export const create = mutation({
         /* Verificamos que el usuario este loggueado */
         const identity = await ctx.auth.getUserIdentity()
 
-        if(!identity){
+        if (!identity) {
             throw new Error("Not authenticated")
         }
 
@@ -43,7 +43,7 @@ export const getSidebar = query({
         /* Verificamos que el usuario este loggueado */
         const identity = await ctx.auth.getUserIdentity()
 
-        if(!identity){
+        if (!identity) {
             throw new Error("Not authenticated")
         }
 
@@ -62,7 +62,68 @@ export const getSidebar = query({
             .order("desc")
             /* Obtenemos los documentos */
             .collect()
-        
+
         return documents
+    }
+})
+
+export const archive = mutation({
+    /* Argumentos que debemos enviarle cada vez que queramos archivar un documento */
+    args: { 
+        id: v.id("documents") 
+    },
+    /* Funcion para archivar los documentos */
+    handler: async (ctx, args) => {
+        /* Verificamos que el usuario este loggueado */
+        const identity = await ctx.auth.getUserIdentity()
+
+        if (!identity) {
+            throw new Error("Not authenticated")
+        }
+
+        /* Obtenemos el userId */
+        const userId = identity.subject
+
+        /* Obtenemos y verifucamos que el documento exista */
+        const existingDocument = await ctx.db.get(args.id)
+
+        if(!existingDocument) {
+            throw new Error("Not found")
+        }
+
+        /* Verificamos que el usuario sea el propietario del documento */
+        if(existingDocument.userId !== userId) {
+            throw new Error("Unauthorized")
+        }
+
+        /* Archivamos todos los documentos hijos */
+        const recursiveArchive = async (documentId: Id<"documents">) => {
+            /* Obtenemos los children */
+            const children = await ctx.db
+                .query("documents")
+                .withIndex("by_user_parent", (q) => (
+                    q.eq("userId", userId).eq("parentDocument", documentId)
+                ))
+                .collect()
+            
+            /* Archivamos cada children */
+            for(const child of children) {
+                await ctx.db.patch(child._id, {
+                    isArchived: true
+                })
+
+                /* Volvemos a llamar a la funcion para archivar a los hijos de los hijos */
+                await recursiveArchive(child._id)
+            }
+        }
+
+        /* Archivamos los documentos */
+        const document = await ctx.db.patch(args.id, {
+            isArchived: true
+        })
+
+        recursiveArchive(args.id)
+
+        return document
     }
 })

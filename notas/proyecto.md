@@ -9,3 +9,4 @@
 6. Trabajamos en el schema ► `notas/archivos/db.md`
 7. Trabajamos en el sidebar item ► `notas/archivos/page.md`
 8. Trabajamos en el document list ► `notas/archivos/page.md`
+9. Trabajamos en el archive funcionality ► `notas/archivos/db.md`

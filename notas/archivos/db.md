@@ -39,3 +39,7 @@
 4. Agregamos el *Toaster* de sonner al RootLayout ► `app/layout`
 5. Usamos esta funcion en el *DocumentPage* ► `app/(main)/(routes)/documents/page.tsx`
 6. Creamos la funcion para obtener los documentos ► `convex/documents.ts`
+
+# ARCHIVE FUNCIONALITY
+1. Creamos el endpoint para ► `convex/documents.ts`
+2. Editamos el componente *Item* para mostrar los archivados ► `app/(main)/_components/item.tsx`
