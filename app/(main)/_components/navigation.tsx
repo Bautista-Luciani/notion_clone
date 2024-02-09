@@ -13,9 +13,11 @@ import { toast } from "sonner"
 import DocumentList from "./document-list"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import TrashBox from "./trash-box"
+import { useSearch } from "@/hooks/use-search"
 
 const Navigation = () => {
 
+    const search = useSearch()
     /* Vamos a usar el pathname para que, en caso de que estemos en un celular, el sidebar se colapse automaticamente al tocar en un item */
     const pathname = usePathname()
     /* Usamos useMediaQuery para saber si estamos en mobile o desktop */
@@ -146,7 +148,7 @@ const Navigation = () => {
                 <div>
                     <UserItem />
                     <Item
-                        onClick={() => { }}
+                        onClick={search.onOpen}
                         label="Search"
                         icon={Search}
                         isSearch

@@ -29,3 +29,13 @@
 4. Aplicamos cambios en el alert-dialog component ► `components/ui/alert-dialog.tsx`
 5. Creamos el componente *ConfirmModal* ► `components/modals/confirm-modal.tsx`
 6. Usamos el ConfirmModal en el *TrashBox* ► `app/(main)/_components/trash-box.tsx`
+
+# SEARCH FUNCIONALITY
+1. Aplicamos cambios al skeletor component ► `components/ui/skeleton.tsx`
+2. Aplicamos cambios al dialog component ► `components/ui/dialog.tsx`
+3. Instalamos zustand ► `npm i zustand`
+4. Creamos el hook *useSearch* ► `hooks/use-search.tsx`
+5. Creamos el endpoint para obtener docs a traves del search ► `convex/documents.ts`
+6. Creamos el componente *SearchCommand* ► `components/search-command.tsx`
+7. Agregamos el SearchCommand al *MainLayout* ► `app/(main)/layout.tsx`
+8. Usamos el useSearch en el *Navigation* ► `app/(main)/_components/navigation.tsx`

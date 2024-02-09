@@ -13,3 +13,4 @@
 10. Trabajamos en el trash box:
    - Trabajamos con la db ► `notas/archivos/db.md`
    - Trabajamos con los componentes ► `notas/archivos/page.md`
+11. Trabajamos en el search funcionality ► `notas/archivos/page.md`

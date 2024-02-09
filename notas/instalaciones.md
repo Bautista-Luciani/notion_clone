@@ -6,6 +6,7 @@
 >- `Popover` → npx shadcn-ui@latest add popover
 >- `Input` → npx shadcn-ui@latest add input
 >- `Alert-dialog` → npx shadcn-ui@latest add alert-dialog
+>- `Command` → npx shadcn-ui@latest add command
 
 # THEME (light and dark mode)
 >- `Next-Themes` → npm install next-themes
@@ -23,3 +24,5 @@
 # SONNER (toaster)
 >- `Sonner` → npm i sonner
 
+# ZUSTAND (global state)
+>- `Zustand` → npm i zustand

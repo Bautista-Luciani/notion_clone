@@ -261,3 +261,27 @@ export const remove = mutation({
     }
 })
 
+export const getSearch = query({
+    /* Funcion para obtener los documentos a traves del search */
+    handler: async (ctx) => {
+        /* Verificamos que el usuario este loggueado */
+        const identity = await ctx.auth.getUserIdentity()
+
+        if (!identity) {
+            throw new Error("Not authenticated")
+        }
+
+        /* Obtenemos el userId */
+        const userId = identity.subject
+
+        /* Obtenemos los documentos utilizando los index que definimos en el schema */
+        const documents = await ctx.db
+            .query("documents")
+            .withIndex("by_user", (q) => q.eq("userId", userId))
+            .filter((q) => q.eq(q.field("isArchived"), false))
+            .order("desc")
+            .collect()
+
+        return documents
+    }
+})
