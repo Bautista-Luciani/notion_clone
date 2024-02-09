@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { ChevronLeft, MenuIcon, PlusCircle, Search, Settings, Sidebar } from "lucide-react"
+import { ChevronLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Sidebar, Trash } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { ElementRef, useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
@@ -11,6 +11,8 @@ import { useMutation } from "convex/react"
 import { api } from "@/convex/_generated/api"
 import { toast } from "sonner"
 import DocumentList from "./document-list"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import TrashBox from "./trash-box"
 
 const Navigation = () => {
 
@@ -30,18 +32,18 @@ const Navigation = () => {
 
     /* Usamos ambos useEffect para el correcto funcionamiento cuando pasamos de desktop a mobile */
     useEffect(() => {
-      if(isMobile){
-        collapse()
-      } else {
-        resetWidth()
-      }
-      /* Evitar este warning */
+        if (isMobile) {
+            collapse()
+        } else {
+            resetWidth()
+        }
+        /* Evitar este warning */
     }, [isMobile])
 
     useEffect(() => {
-      if(isMobile){
-        collapse()
-      }
+        if (isMobile) {
+            collapse()
+        }
     }, [pathname, isMobile])
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -143,18 +145,18 @@ const Navigation = () => {
                 </div>
                 <div>
                     <UserItem />
-                    <Item 
-                        onClick={()=>{}}
+                    <Item
+                        onClick={() => { }}
                         label="Search"
                         icon={Search}
                         isSearch
                     />
-                    <Item 
-                        onClick={()=>{}}
+                    <Item
+                        onClick={() => { }}
                         label="Settings"
                         icon={Settings}
                     />
-                    <Item 
+                    <Item
                         onClick={handleCreate}
                         label="New page"
                         icon={PlusCircle}
@@ -162,6 +164,22 @@ const Navigation = () => {
                 </div>
                 <div className="mt-4">
                     <DocumentList />
+                    <Item
+                        label="Add a page"
+                        icon={Plus}
+                        onClick={handleCreate}
+                    />
+                    <Popover>
+                        <PopoverTrigger className="w-full mt-4">
+                            <Item label="Trash" icon={Trash} />
+                        </PopoverTrigger>
+                        <PopoverContent
+                            className="p-0 w-72"
+                            side={isMobile ? "bottom" : "right"}
+                        >
+                            <TrashBox />
+                        </PopoverContent>
+                    </Popover>
                 </div>
                 <div
                     onMouseDown={handleMouseDown}

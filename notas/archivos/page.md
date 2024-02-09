@@ -21,3 +21,11 @@
 # DOCUMENT LIST
 1. Creamos el componente *DocumentList* ► `app/(main)/_components/document-list.tsx`
 2. Usamos el DocumentList en el *Navigation* ► `app/(main)/_components/navigation.tsx`
+
+# TRASH BOX
+1. Aplicamos cambios en el popover component ► `components/ui/popover.tsx`
+2. Creamos el componente *TrashBox* ► `app/(main)/_components/trash-box.tsx`
+3. Usamos el TrashBox en el *Navigation* ► `app/(main)/_components/navigation.tsx`
+4. Aplicamos cambios en el alert-dialog component ► `components/ui/alert-dialog.tsx`
+5. Creamos el componente *ConfirmModal* ► `components/modals/confirm-modal.tsx`
+6. Usamos el ConfirmModal en el *TrashBox* ► `app/(main)/_components/trash-box.tsx`

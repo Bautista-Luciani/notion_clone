@@ -10,3 +10,6 @@
 7. Trabajamos en el sidebar item ► `notas/archivos/page.md`
 8. Trabajamos en el document list ► `notas/archivos/page.md`
 9. Trabajamos en el archive funcionality ► `notas/archivos/db.md`
+10. Trabajamos en el trash box:
+   - Trabajamos con la db ► `notas/archivos/db.md`
+   - Trabajamos con los componentes ► `notas/archivos/page.md`

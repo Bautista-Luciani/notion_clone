@@ -43,3 +43,8 @@
 # ARCHIVE FUNCIONALITY
 1. Creamos el endpoint para ► `convex/documents.ts`
 2. Editamos el componente *Item* para mostrar los archivados ► `app/(main)/_components/item.tsx`
+
+# TRASH BOX
+1. Creamos un endpoint para obtener los docs eliminados ► `convex/documents.ts`
+2. Creamos un endpoint para recuperar los docs eliminados ► `convex/documents.ts`
+3. Creamos un endpoint para eliminar definitivamente los docs ► `convex/documents.ts`

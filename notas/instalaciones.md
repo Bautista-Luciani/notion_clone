@@ -3,6 +3,9 @@
 >- `Dropdown` → npx shadcn-ui@latest add dropdown-menu
 >- `Avatar` → npx shadcn-ui@latest add avatar
 >- `Skeleton` → npx shadcn-ui@latest add skeleton
+>- `Popover` → npx shadcn-ui@latest add popover
+>- `Input` → npx shadcn-ui@latest add input
+>- `Alert-dialog` → npx shadcn-ui@latest add alert-dialog
 
 # THEME (light and dark mode)
 >- `Next-Themes` → npm install next-themes
