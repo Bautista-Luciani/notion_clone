@@ -7,6 +7,7 @@
 >- `Input` → npx shadcn-ui@latest add input
 >- `Alert-dialog` → npx shadcn-ui@latest add alert-dialog
 >- `Command` → npx shadcn-ui@latest add command
+>- `Label` → npx shadcn-ui@latest add label
 
 # THEME (light and dark mode)
 >- `Next-Themes` → npm install next-themes

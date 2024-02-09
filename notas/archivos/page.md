@@ -39,3 +39,11 @@
 6. Creamos el componente *SearchCommand* ► `components/search-command.tsx`
 7. Agregamos el SearchCommand al *MainLayout* ► `app/(main)/layout.tsx`
 8. Usamos el useSearch en el *Navigation* ► `app/(main)/_components/navigation.tsx`
+
+# SETTINGS
+1. Creamos el hook *useSettings* ► `hooks/use-settings.tsx`
+2. Creamos el componente *SettingModal* ► `components/modal/setting-modal.tsx`
+3. Creamos el *ModalProvider* ► `components/providers/modal-provider.tsx`
+4. Agregamos el SettingModal al *ModalProvider* ► `components/providers/modal-provider.tsx`
+5. Agregamos el ModalProvider al *RootLayout* ► `app/layout.tsx`
+6. Usamos el useSettings en el *Navigation* ► `app/(main)/_components/navigation.tsx`

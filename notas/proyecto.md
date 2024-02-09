@@ -14,3 +14,4 @@
    - Trabajamos con la db ► `notas/archivos/db.md`
    - Trabajamos con los componentes ► `notas/archivos/page.md`
 11. Trabajamos en el search funcionality ► `notas/archivos/page.md`
+12. Trabajamos en los settings ► `notas/archivos/page.md`
