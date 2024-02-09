@@ -17,3 +17,7 @@
 1. Creamos el componente *Item* ► `app/(main)/_components/item.tsx`
 2. Usamos el Item en el *Navigation* ► `app/(main)/_components/navigation.tsx`
 3. Usamos la funcion para crear un nuevo doc en el *Navigation* ► `app/(main)/_components/navigation.tsx`
+
+# DOCUMENT LIST
+1. Creamos el componente *DocumentList* ► `app/(main)/_components/document-list.tsx`
+2. Usamos el DocumentList en el *Navigation* ► `app/(main)/_components/navigation.tsx`
