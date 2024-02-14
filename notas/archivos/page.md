@@ -47,3 +47,17 @@
 4. Agregamos el SettingModal al *ModalProvider* ► `components/providers/modal-provider.tsx`
 5. Agregamos el ModalProvider al *RootLayout* ► `app/layout.tsx`
 6. Usamos el useSettings en el *Navigation* ► `app/(main)/_components/navigation.tsx`
+
+# NAVBAR
+1. Creamos un endpoint para obtener un doc por su id ► `convex/documents.ts`
+2. Creamos el componente *Navbar* ► `app/(main)/_components/navbar.tsx`
+3. Usamos el Navbar en el *Navigation* ► `app/(main)/_components/navigation.tsx`
+4. Creamos el *DocumentIdPage* ► `app/(main)/(routes)/documents/[documentId]/page.tsx`
+5. Creamos un endpoint para actualizar los docs ► `convex/documents.ts`
+6. Creamos el componente *Title* ► `app/(main)/_components/title.tsx`
+7. Usamos el Title en el *Navbar* ► `app/(main)/_components/navbar.tsx`
+8. Aplicamos cambios al button component ► `components/ui/button.tsx`
+9. Creamos el componente *Banner* ► `app/(main)/_components/banner.tsx`
+10. Usamos el Banner en el *Navbar* ► `app/(main)/_components/navbar.tsx`
+11. Creamos el componente *Menu* ► `app/(main)/_components/menu.tsx`
+12. Usamos el Menu en el *Navbar* ► `app/(main)/_components/navbar.tsx`

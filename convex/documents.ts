@@ -69,8 +69,8 @@ export const getSidebar = query({
 
 export const archive = mutation({
     /* Argumentos que debemos enviarle cada vez que queramos archivar un documento */
-    args: { 
-        id: v.id("documents") 
+    args: {
+        id: v.id("documents")
     },
     /* Funcion para archivar los documentos */
     handler: async (ctx, args) => {
@@ -87,12 +87,12 @@ export const archive = mutation({
         /* Obtenemos y verificamos que el documento exista */
         const existingDocument = await ctx.db.get(args.id)
 
-        if(!existingDocument) {
+        if (!existingDocument) {
             throw new Error("Not found")
         }
 
         /* Verificamos que el usuario sea el propietario del documento */
-        if(existingDocument.userId !== userId) {
+        if (existingDocument.userId !== userId) {
             throw new Error("Unauthorized")
         }
 
@@ -105,9 +105,9 @@ export const archive = mutation({
                     q.eq("userId", userId).eq("parentDocument", documentId)
                 ))
                 .collect()
-            
+
             /* Archivamos cada children */
-            for(const child of children) {
+            for (const child of children) {
                 await ctx.db.patch(child._id, {
                     isArchived: true
                 })
@@ -155,8 +155,8 @@ export const getTrash = query({
 
 export const restore = mutation({
     /* Argumentos que debemos enviarle cada vez que queramos recuperar un documento */
-    args: { 
-        id: v.id("documents") 
+    args: {
+        id: v.id("documents")
     },
     /* Funcion para recuperar los documentos */
     handler: async (ctx, args) => {
@@ -173,12 +173,12 @@ export const restore = mutation({
         /* Obtenemos y verificamos que el documento exista */
         const existingDocument = await ctx.db.get(args.id)
 
-        if(!existingDocument) {
+        if (!existingDocument) {
             throw new Error("Not found")
         }
 
         /* Verificamos que el usuario sea el propietario del documento */
-        if(existingDocument.userId !== userId) {
+        if (existingDocument.userId !== userId) {
             throw new Error("Unauthorized")
         }
 
@@ -191,9 +191,9 @@ export const restore = mutation({
                     q.eq("userId", userId).eq("parentDocument", documentId)
                 ))
                 .collect()
-            
+
             /* Restauramos cada children */
-            for(const child of children) {
+            for (const child of children) {
                 await ctx.db.patch(child._id, {
                     isArchived: false
                 })
@@ -209,9 +209,9 @@ export const restore = mutation({
 
         /* En caso de que el documento actual tenga un documento padre, y ese documento padre esta archivado,
         vamos a cambiar el valor del isArchived a false y el parentDocument a undefined */
-        if(existingDocument.parentDocument) {
+        if (existingDocument.parentDocument) {
             const parent = await ctx.db.get(existingDocument.parentDocument)
-            if(parent?.isArchived) {
+            if (parent?.isArchived) {
                 options.parentDocument = undefined
             }
         }
@@ -227,8 +227,8 @@ export const restore = mutation({
 
 export const remove = mutation({
     /* Argumentos que debemos enviarle cada vez que queramos eliminar un documento */
-    args: { 
-        id: v.id("documents") 
+    args: {
+        id: v.id("documents")
     },
     /* Funcion para eliminar los documentos */
     handler: async (ctx, args) => {
@@ -245,12 +245,12 @@ export const remove = mutation({
         /* Obtenemos y verificamos que el documento exista */
         const existingDocument = await ctx.db.get(args.id)
 
-        if(!existingDocument) {
+        if (!existingDocument) {
             throw new Error("Not found")
         }
 
         /* Verificamos que el usuario sea el propietario del documento */
-        if(existingDocument.userId !== userId) {
+        if (existingDocument.userId !== userId) {
             throw new Error("Unauthorized")
         }
 
@@ -285,3 +285,83 @@ export const getSearch = query({
         return documents
     }
 })
+
+export const getById = query({
+    args: {
+        documentId: v.id("documents")
+    },
+    handler: async (ctx, args) => {
+        /* Obtenemos el usuario pero todavia no verificamos que el doc sea del usuario ya que en caso 
+        de que este publicado lo podrian ver otros usuarios. Primero hay que verificar de que este 
+        publicado y en caso de que no recien ahi hacemos esta verificacion */
+        const identity = await ctx.auth.getUserIdentity()
+
+        /* Obtenemos el documento y verificamos de que exista */
+        const document = await ctx.db.get(args.documentId)
+
+        if (!document) {
+            throw new Error("Not found")
+        }
+
+        /* Si el doc esta publicado y no esta eliminado lo retornamos */
+        if (document.isPublished && !document.isArchived) {
+            return document
+        }
+
+        /* Ahora si verificamos de que el doc sea del usuario, ya que si llegamos a este punto es porque no esta publicado */
+        if (!identity) {
+            throw new Error("Not authenticated")
+        }
+
+        const userId = identity.subject
+
+        if (document.userId !== userId) {
+            throw new Error("Unauthorized")
+        }
+
+        return document
+    }
+})
+
+export const update = mutation({
+    args: {
+        id: v.id("documents"),
+        title: v.optional(v.string()),
+        content: v.optional(v.string()),
+        coverImage: v.optional(v.string()),
+        icon: v.optional(v.string()),
+        isPublished: v.optional(v.boolean())
+    },
+    handler: async (ctx, args) => {
+        /* Verificamos que el usuario este loggueado */
+        const identity = await ctx.auth.getUserIdentity();
+
+        if (!identity) {
+            throw new Error("Unauthenticated");
+        }
+
+        /* Obtenemos el userId */
+        const userId = identity.subject;
+
+        /* Obtenemos los args */
+        const { id, ...rest } = args;
+
+        /* Obtenemos el doc */
+        const existingDocument = await ctx.db.get(args.id);
+
+        if (!existingDocument) {
+            throw new Error("Not found");
+        }
+
+        if (existingDocument.userId !== userId) {
+            throw new Error("Unauthorized");
+        }
+
+        /* Actualizamos el doc */
+        const document = await ctx.db.patch(args.id, {
+            ...rest,
+        });
+
+        return document;
+    },
+});
