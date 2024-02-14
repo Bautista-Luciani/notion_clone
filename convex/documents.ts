@@ -324,6 +324,7 @@ export const getById = query({
 })
 
 export const update = mutation({
+    /* Argumentos que debemos enviarle cada vez que queramos actualizar un documento */
     args: {
         id: v.id("documents"),
         title: v.optional(v.string()),
@@ -364,4 +365,40 @@ export const update = mutation({
 
         return document;
     },
+});
+
+export const removeIcon = mutation({
+    /* Argumentos que debemos enviarle cada vez que queramos eliminar un icono */
+    args: { 
+        id: v.id("documents") 
+    },
+    handler: async (ctx, args) => {
+        /* Verificamos que el usuario este loggueado */
+        const identity = await ctx.auth.getUserIdentity();
+
+        if (!identity) {
+            throw new Error("Unauthenticated");
+        }
+
+        /* Obtenemos el userId */
+        const userId = identity.subject;
+
+        /* Obtenemos el doc */
+        const existingDocument = await ctx.db.get(args.id);
+
+        if (!existingDocument) {
+            throw new Error("Not found");
+        }
+
+        if (existingDocument.userId !== userId) {
+            throw new Error("Unauthorized");
+        }
+
+        /* Eliminamos el icono */
+        const document = await ctx.db.patch(args.id, {
+            icon: undefined
+        });
+
+        return document;
+    }
 });

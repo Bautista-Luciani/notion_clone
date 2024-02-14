@@ -52,7 +52,7 @@
 1. Creamos un endpoint para obtener un doc por su id ► `convex/documents.ts`
 2. Creamos el componente *Navbar* ► `app/(main)/_components/navbar.tsx`
 3. Usamos el Navbar en el *Navigation* ► `app/(main)/_components/navigation.tsx`
-4. Creamos el *DocumentIdPage* ► `app/(main)/(routes)/documents/[documentId]/page.tsx`
+4. Creamos el *DocumentIdPage* (pero x ahora vacio) ► `app/(main)/(routes)/documents/[documentId]/page.tsx`
 5. Creamos un endpoint para actualizar los docs ► `convex/documents.ts`
 6. Creamos el componente *Title* ► `app/(main)/_components/title.tsx`
 7. Usamos el Title en el *Navbar* ► `app/(main)/_components/navbar.tsx`

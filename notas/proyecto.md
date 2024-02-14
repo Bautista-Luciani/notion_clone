@@ -16,3 +16,4 @@
 11. Trabajamos en el search funcionality ► `notas/archivos/page.md`
 12. Trabajamos en los settings ► `notas/archivos/page.md`
 13. Trabajamos en el navbar ► `notas/archivos/page.tsx`
+14. Trabajamos en el documentIdPage ► `notas/archivos/doc.tsx`

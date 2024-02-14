@@ -22,6 +22,7 @@ const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
     documentId: params.documentId as Id<"documents">
   })
 
+  /* En convex si los documentos estan undefined es porque esta cargando, en caso de que lance un error su valor seria null*/
   if (document === undefined) {
     return (
       <nav className="bg-background dark:bg-[#1F1F1F] px-3 py-2 w-full flex items-center justify-between">

@@ -27,3 +27,9 @@
 
 # ZUSTAND (global state)
 >- `Zustand` → npm i zustand
+
+# EMOJI PICKER REACT (emojis)
+>- `Emoji-picker-react` → npm i emoji-picker-react
+
+# TEXTAREA AUTOSIZE
+>- `Textarea-autosize` → npm i react-textarea-autosize
