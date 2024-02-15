@@ -18,3 +18,4 @@
 13. Trabajamos en el navbar ► `notas/archivos/page.tsx`
 14. Trabajamos en el documentIdPage ► `notas/archivos/doc.tsx`
 15. Trabajamos en la publicacion ► `notas/archivos/publish.tsx`
+16. Trabajamos en el deployment ► `notas/archivos/deploy.tsx`
