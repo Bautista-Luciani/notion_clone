@@ -37,6 +37,9 @@ const Item = ({ id, documentIcon, active, expanded, isSearch, level = 0, onExpan
         if (!id) return
 
         const promise = archive({ id })
+            .then(() => {
+                router.push('/documents')
+            })
 
         toast.promise(promise, {
             loading: "Moving to trash...",
@@ -61,7 +64,8 @@ const Item = ({ id, documentIcon, active, expanded, isSearch, level = 0, onExpan
                 if (!expanded) {
                     onExpand?.()
                 }
-                // router.push(`/documents/${documentId}`)
+                
+                router.push(`/documents/${documentId}`)
             })
 
         toast.promise(promise, {

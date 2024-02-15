@@ -40,4 +40,7 @@
 <!-- Texto -->
 17. Instalamos *BlockNote* ► `npm i @blocknote/react @blocknote/core`
 18. Creamos el componente *Editor* ► `components/editor.tsx`
+19. Usamos el Editor en el *DocumentIdPage* ► `app/(main)/(routes)/documents/[documentId]/page.tsx`
+<!-- Errores -->
+20. Creamos el componente *Error* ► `app/error.tsx`
     

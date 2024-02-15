@@ -6,18 +6,23 @@ import { useUser } from "@clerk/clerk-react"
 import { useMutation } from "convex/react"
 import { PlusCircle } from "lucide-react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { toast } from "sonner"
 
 const DocumentsPage = () => {
 
   const { user } = useUser()
 
+  const router = useRouter()
   /* Usamos el useMutation para utilizar las apis que creamos, en este caso la de crear un documento */
   const create = useMutation(api.documents.create)
 
   /* Funcion para crear un documento */
   const onCreate = () => {
     const promise = create({ title: "Untitled" })
+      .then((documentId) => {
+        router.push(`/documents/${documentId}`)
+      })
 
     toast.promise(promise, {
       loading: "Creating a new note...",
