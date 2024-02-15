@@ -17,3 +17,4 @@
 12. Trabajamos en los settings ► `notas/archivos/page.md`
 13. Trabajamos en el navbar ► `notas/archivos/page.tsx`
 14. Trabajamos en el documentIdPage ► `notas/archivos/doc.tsx`
+15. Trabajamos en la publicacion ► `notas/archivos/publish.tsx`
