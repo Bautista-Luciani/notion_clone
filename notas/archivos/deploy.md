@@ -1,7 +1,7 @@
 # DEPLOYMENT
 1. Vamos a [https://docs.convex.dev/production/hosting/vercel] y seguimos los pasos:
 2. Vamos a Vercel: [https://vercel.com/bautistas-projects] ►
-   - Tocamos en 'New proyect'
+   - Tocamos en 'Add new' ► 'proyect'
    - Importamos el repositorio
    - Definimos un nombre (que en lo posible no incluya el nombre de la aplicacion real para evitar errores)
    - Tocamos en 'Build and Output Settings' y habilitamos la opcion de 'Build command'
