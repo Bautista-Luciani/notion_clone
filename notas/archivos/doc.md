@@ -1,5 +1,6 @@
 # DOCUMENT ID PAGE
 1. Trabajamos en el *DocumentIdPage* ► `app/(main)/(routes)/documents/[documentId]/page.tsx`
+<!-- Iconos -->
 2. Instalamos emoji-picker-react ► `npm i emoji-picker-react`
 3. Instalamos textarea-autosize ► `npm i react-textarea-autosize`
 4. Creamos un endpoint para eliminar el icono ► `convex/documents.ts`
@@ -7,7 +8,8 @@
 6. Creamos el componente *IconPicker* ► `components/icon-picker.tsx`
 7. Usamos el IconPicker en el *Toolbar* ► `components/toolbar.tsx`
 8. Usamos el Toolbar en el *DocumentIdPage* ► `app/(main)/(routes)/documents/[documentId]/page.tsx`
-9. Creamos el hook *useCoverImage* ► `hooks/use-cover-image.tsx`
+<!-- Imagen -->
+9.  Creamos el hook *useCoverImage* ► `hooks/use-cover-image.tsx`
 10. Creamos el componente *CoverImageModal* ► `components/modals/cover-image-modal.tsx`
 11. Agregamos el CoverImageModal al *ModalProvider* ► `components/providers/modal-provider.tsx`
 12. Usamos el useCoverImage en el *Toolbar* ► `components/toolbar.tsx`
@@ -35,4 +37,7 @@
 14. Creamos un endpoint para eliminar la imagen ► `convex/documents.ts`
 15. Creamos el componente *Cover* ► `components/cover.tsx`
 16. Usamos el Cover en el *DocumentIdPage* ► `app/(main)/(routes)/documents/[documentId]/page.tsx`
+<!-- Texto -->
+17. Instalamos *BlockNote* ► `npm i @blocknote/react @blocknote/core`
+18. Creamos el componente *Editor* ► `components/editor.tsx`
     

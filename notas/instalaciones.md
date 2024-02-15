@@ -35,5 +35,8 @@
 >- `Textarea-autosize` → npm i react-textarea-autosize
 
 # EDGE STORE (upload image)
->- `Edge store` ► npm install @edgestore/server @edgestore/react zod
->- `Dependencias` ► npm install tailwind-merge react-dropzone lucide-react
+>- `Edge store` → npm install @edgestore/server @edgestore/react zod
+>- `Dependencias` → npm install tailwind-merge react-dropzone lucide-react
+
+# BLOCKNOTE (texto del doc)
+>- `Blocknote` → npm i @blocknote/react @blocknote/core
