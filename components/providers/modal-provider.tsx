@@ -5,6 +5,7 @@ En vez de escribir en cada componente el useEffect y el if, creamos el provider 
 
 import { useEffect, useState } from "react"
 import SettingModal from "../modals/setting-modal"
+import CoverImageModal from "../modals/cover-image-modal"
 
 export const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false)
@@ -20,6 +21,7 @@ export const ModalProvider = () => {
     return (
         <>
             <SettingModal />
+            <CoverImageModal />
         </>
     )
 }
